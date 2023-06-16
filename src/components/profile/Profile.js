@@ -1,6 +1,6 @@
 const Profile = props => {
-  console.log(props);
   const { username, tag, location, avatar, followers, views, likes } = props;
+
   return (
     <div className="profile">
       <div className="description">
