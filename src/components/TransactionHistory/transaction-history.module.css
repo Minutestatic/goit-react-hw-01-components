@@ -1,0 +1,20 @@
+.transaction-history {
+  min-width: 600px;
+  margin: 50px auto;
+  background-color: white;
+  border-radius: 15px;
+  box-shadow: 0px 2px 12px -1px rgba(188, 192, 194, 1);
+}
+
+table th {
+  padding: 10px;
+}
+
+.tbody tr:nth-child(2n),
+tbody tr:nth-child(2n - 1) {
+  background-color: #f3f3f3;
+}
+
+td {
+  padding: 10px 60px;
+}
