@@ -1,20 +1,22 @@
+import css from './friend-list.module.css';
+
 const FriendList = props => {
   const { friends } = props;
 
   return (
-    <ul className="friend-list">
+    <ul className={css['friend-list']}>
       {friends.map(friend => {
-        let statusClass = friend.isOnline ? 'isOnline' : 'isOffline';
+        let statusClass = friend.isOnline ? css.isOnline : css.isOffline;
         return (
-          <li className="item" key={friend.id}>
+          <li className={css.item} key={friend.id}>
             <span className={statusClass}></span>
             <img
-              className="avatar"
+              className={css.avatar}
               src={friend.avatar}
               alt="User avatar"
               width="48"
             />
-            <p className="name">{friend.name}</p>
+            <p className={css.name}>{friend.name}</p>
           </li>
         );
       })}
