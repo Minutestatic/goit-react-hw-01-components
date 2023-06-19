@@ -1,18 +1,33 @@
+import css from './statistics.module.css';
+
+function getRandomHexColor() {
+  return `#${Math.floor(Math.random() * 16777215)
+    .toString(16)
+    .padStart(6, 0)}`;
+}
+
 const Statistics = props => {
   const { stats } = props;
   return (
-    <section className="statistics">
-      {props.title && <h2 className="title">{props.title}</h2>}
+    <section className={css.statistics}>
+      {props.title && <h2 className={css.title}>{props.title}</h2>}
 
-      <ul className="stat-list">
+      <ul className={css['stat-list']}>
         {stats.map(stat => (
-          <li className="item" key={stat.id}>
-            <span className="label">{stat.label}</span>
-            <span className="percentage">{stat.percentage}</span>
+          <li
+            className={css.item}
+            style={{
+              backgroundColor: getRandomHexColor(),
+            }}
+            key={stat.id}
+          >
+            <span className={css.label}>{stat.label}</span>
+            <span className={css.percentage}>{stat.percentage}%</span>
           </li>
         ))}
       </ul>
     </section>
   );
 };
+
 export default Statistics;
