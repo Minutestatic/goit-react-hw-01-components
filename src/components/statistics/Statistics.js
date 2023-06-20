@@ -1,16 +1,11 @@
-import css from './statistics.module.css';
+import css from './Statistics.module.css';
+import getRandomHexColor from '../../helpers/getRandomHexColor';
+import PropTypes from 'prop-types';
 
-function getRandomHexColor() {
-  return `#${Math.floor(Math.random() * 16777215)
-    .toString(16)
-    .padStart(6, 0)}`;
-}
-
-const Statistics = props => {
-  const { stats } = props;
+const Statistics = ({ stats, title }) => {
   return (
     <section className={css.statistics}>
-      {props.title && <h2 className={css.title}>{props.title}</h2>}
+      {title && <h2 className={css.title}>{title}</h2>}
 
       <ul className={css['stat-list']}>
         {stats.map(stat => (
@@ -28,6 +23,17 @@ const Statistics = props => {
       </ul>
     </section>
   );
+};
+
+Statistics.propTypes = {
+  stats: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.string.isRequired,
+      label: PropTypes.string.isRequired,
+      percentage: PropTypes.number.isRequired,
+    })
+  ).isRequired,
+  title: PropTypes.string,
 };
 
 export default Statistics;
