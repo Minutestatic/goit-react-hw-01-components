@@ -8,9 +8,6 @@ import data from '../../data/data.json';
 import friends from '../../data/friends.json'
 import transactions from '../../data/transactions'
 
-
-
-
 const App = () => {
   
   return (
